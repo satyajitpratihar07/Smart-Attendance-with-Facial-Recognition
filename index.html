@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facial Recognition Attendance System</title>
+    <meta name="description"
+        content="Modern facial recognition-based attendance management system for educational institutions">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <link rel="shortcut icon" href="1st.png">
+<div class="logo-box">
+    <img src="2nd.png" alt="" class="site-logo">
+</div>
+</head>
+
+<body>
+    <!-- Login Button (Upper Right Corner) -->
+    <div class="login-button-container">
+        <button id="loginBtn" class="btn-login">Login</button>
+    </div>
+
+    <!-- Homepage Section -->
+    <section id="homepage" class="homepage">
+        <div class="hero-background"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="gradient-text">Smart Attendance System</span>
+                    <br> For Smart Study
+                </h1>
+                <p class="hero-subtitle">Advanced facial recognition technology for seamless attendance tracking</p>
+                <div class="hero-buttons">
+                    <button id="adminGetStarted" class="btn-primary">
+                        <span>Admin Dashboard</span>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <button id="studentGetStarted" class="btn-secondary">
+                        <span>View My Attendance</span>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="face-scan-animation">
+                    <div class="scan-line"></div>
+                    <div class="face-outline"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <div class="features-section">
+            <h2 class="section-title">Why Choose My System?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Accurate Recognition</h3>
+                    <p>Advanced AI-powered facial recognition for precise student identification</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Lightning Fast</h3>
+                    <p>Record attendance in seconds with real-time face scanning</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Smart Analytics</h3>
+                    <p>Comprehensive reports and insights at your fingertips</p>
+                </div>
+                
+                <div class="feature-card">
+    <div class="feature-icon">
+        <i class="fa-solid fa-user-secret"></i>
+        </div>
+             <h3>Developed By-</h3>
+             <p><h2 style="color: rgb(217, 148, 20);">Satyajit Pratihar</h2></p>
+             <a href="https://www.linkedin.com/in/satyajit-pratihar-911182341/" target="_blank" rel="noopener noreferrer"
+                    class="linkedin-link">
+                    <svg class="linkedin-icon" viewBox="0 0 524" fill="currentColor">
+                        <path
+                            d="M20 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                    </svg>
+                    
+                </a>
+              </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 class="modal-title">Welcome Back</h2>
+
+            <!-- Login Type Toggle -->
+            <div class="login-toggle">
+                <button id="adminLoginTab" class="toggle-btn active">Admin</button>
+                <button id="studentLoginTab" class="toggle-btn">Student</button>
+            </div>
+
+            <!-- Admin Login Form -->
+            <form id="adminLoginForm" class="login-form">
+                <div class="form-group">
+                    <label for="adminUsername">Username</label>
+                    <input type="text" id="adminUsername" placeholder="Enter admin username" required>
+                </div>
+                <div class="form-group">
+                    <label for="adminPassword">Password</label>
+                    <input type="password" id="adminPassword" placeholder="Enter password" required>
+                </div>
+                <button type="submit" class="btn-primary full-width">Login as Admin</button>
+            </form>
+
+            <!-- Student Login Form -->
+            <form id="studentLoginForm" class="login-form" style="display: none;">
+                <div class="form-group">
+                    <label for="studentCollegeId">College ID</label>
+                    <input type="text" id="studentCollegeId" placeholder="Enter your college ID" required>
+                </div>
+                <button type="submit" class="btn-primary full-width">Login as Student</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <section id="adminDashboard" class="dashboard" style="display: none;">
+        <nav class="dashboard-nav">
+            <div class="nav-brand">
+                <h2>Admin Dashboard</h2>
+            </div>
+            <div class="nav-menu">
+                <button class="nav-item active" data-view="overview">Overview</button>
+                <button class="nav-item" data-view="register">Register Student</button>
+                <button class="nav-item" data-view="scan">Scan Attendance</button>
+                <button class="nav-item" data-view="manage">Manage Students</button>
+                <button class="nav-item" data-view="records">View Records</button>
+                <button class="nav-item" data-view="settings">Settings</button>
+            </div>
+            <button id="adminLogout" class="btn-logout">Logout</button>
+        </nav>
+
+        <!-- Overview View -->
+        <div id="overviewView" class="dashboard-view active">
+            <h1>Attendance Overview</h1>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-info">
+                        <h3 id="totalStudents">0</h3>
+                        <p>Total Students</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">✅</div>
+                    <div class="stat-info">
+                        <h3 id="presentToday">0</h3>
+                        <p>Present Today</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📈</div>
+                    <div class="stat-info">
+                        <h3 id="attendanceRate">0%</h3>
+                        <p>Attendance Rate</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📅</div>
+                    <div class="stat-info">
+                        <h3 id="currentDate">-</h3>
+                        <p>Today's Date</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="recent-activity">
+                <h2>Recent Attendance</h2>
+                <div id="recentAttendanceList" class="activity-list"></div>
+            </div>
+        </div>
+
+        <!-- Register Student View -->
+        <div id="registerView" class="dashboard-view">
+            <h1>Register New Student</h1>
+            <div class="register-container">
+                <div class="camera-section">
+                    <video id="registerVideo" autoplay playsinline></video>
+                    <canvas id="registerCanvas" style="display: none;"></canvas>
+                    <div id="registerPreview" class="preview-image" style="display: none;">
+                        <img id="capturedImage" alt="Captured face">
+                    </div>
+                    <div class="camera-controls">
+                        <button id="switchCameraBtn" class="btn-secondary">Switch Camera</button>
+                        <button id="captureBtn" class="btn-primary">Capture Face</button>
+                        <button id="retakeBtn" class="btn-secondary" style="display: none;">Retake</button>
+                    </div>
+                </div>
+                <div class="form-section">
+                    <form id="registerForm">
+                        <div class="form-group">
+                            <label for="studentName">Full Name *</label>
+                            <input type="text" id="studentName" placeholder="Enter student name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="studentCollegeID">College ID *</label>
+                            <input type="text" id="studentCollegeID" placeholder="Enter college ID" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="studentRollNumber">Roll Number *</label>
+                            <input type="text" id="studentRollNumber" placeholder="Enter roll number" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="studentClass">Class *</label>
+                            <input type="text" id="studentClass" placeholder="e.g., IT Class, ECE,All" required>
+                        </div>
+                        <button type="submit" class="btn-primary full-width">Register Student</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scan Attendance View -->
+        <div id="scanView" class="dashboard-view">
+            <h1>Scan Attendance</h1>
+            <div class="scan-container">
+                <div class="scan-camera-section">
+                    <video id="scanVideo" autoplay playsinline></video>
+                    <canvas id="scanCanvas" style="display: none;"></canvas>
+                    <div id="scanOverlay" class="scan-overlay">
+                        <div class="scan-frame"></div>
+                        <p id="scanStatus">Position face in the frame</p>
+                    </div>
+                    <div class="scan-controls">
+                        <button id="switchScanCameraBtn" class="btn-secondary">Switch Camera</button>
+                        <button id="startScanBtn" class="btn-primary">Start Scanning</button>
+                        <button id="stopScanBtn" class="btn-danger" style="display: none;">Stop Scanning</button>
+                    </div>
+                </div>
+                <div class="scan-results">
+                    <h2>Today's Scanned Attendance</h2>
+                    <div id="scanResultsList" class="scan-list"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Manage Students View -->
+        <div id="manageView" class="dashboard-view">
+            <h1>Manage Students</h1>
+            <div class="manage-controls">
+                <div class="search-box">
+                    <input type="text" id="manageStudentSearch"
+                        placeholder="Search by name, college ID, or roll number">
+                </div>
+            </div>
+            <div class="students-table-container">
+                <table class="records-table">
+                    <thead>
+                        <tr>
+                            <th>Photo</th>
+                            <th>Name</th>
+                            <th>College ID</th>
+                            <th>Roll Number</th>
+                            <th>Class</th>
+                            <th>Registration Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="studentsTableBody">
+                        <!-- Students will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- View Records View -->
+        <div id="recordsView" class="dashboard-view">
+            <h1>Attendance Records</h1>
+            <div class="records-controls">
+                <div class="filters">
+                    <div class="filter-group">
+                        <label for="classFilter">Class</label>
+                        <select id="classFilter">
+                            <option value="">All Classes</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="dateFromFilter">From Date</label>
+                        <input type="date" id="dateFromFilter">
+                    </div>
+                    <div class="filter-group">
+                        <label for="dateToFilter">To Date</label>
+                        <input type="date" id="dateToFilter">
+                    </div>
+                    <div class="filter-group">
+                        <label for="studentSearch">Search Student</label>
+                        <input type="text" id="studentSearch" placeholder="Name or Roll Number">
+                    </div>
+                </div>
+                <div class="export-buttons">
+                    <button id="copyRecordsBtn" class="btn-secondary">📋 Copy</button>
+                    <button id="exportExcelBtn" class="btn-secondary">📊 Excel</button>
+                    <button id="exportPdfBtn" class="btn-secondary">📄 PDF</button>
+                </div>
+            </div>
+            <div class="records-table-container">
+                <table id="recordsTable" class="records-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Name</th>
+                            <th>Roll Number</th>
+                            <th>College ID</th>
+                            <th>Class</th>
+                            <th>Time</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="recordsTableBody">
+                        <!-- Records will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Settings View -->
+        <div id="settingsView" class="dashboard-view">
+            <h1>Admin Settings</h1>
+            <div class="settings-container">
+                <form id="settingsForm">
+                    <div class="form-group">
+                        <label for="newUsername">New Username</label>
+                        <input type="text" id="newUsername" placeholder="Enter new username">
+                    </div>
+                    <div class="form-group">
+                        <label for="currentPassword">Current Password</label>
+                        <input type="password" id="currentPassword" placeholder="Enter current password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="newPassword">New Password</label>
+                        <input type="password" id="newPassword" placeholder="Enter new password">
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm New Password</label>
+                        <input type="password" id="confirmPassword" placeholder="Confirm new password">
+                    </div>
+                    <button type="submit" class="btn-primary">Update Settings</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Student Dashboard -->
+    <section id="studentDashboard" class="dashboard" style="display: none;">
+        <nav class="dashboard-nav">
+            <div class="nav-brand">
+                <h2>Student Dashboard</h2>
+            </div>
+            <div class="nav-menu">
+                <button class="nav-item active" data-view="student-overview">My Attendance</button>
+            </div>
+            <button id="studentLogout" class="btn-logout">Logout</button>
+        </nav>
+
+        <!-- Student Overview View -->
+        <div id="studentOverviewView" class="dashboard-view active">
+            <h1>My Attendance</h1>
+            <div class="student-info-card">
+                <h2 id="studentDisplayName">-</h2>
+                <p>College ID: <span id="studentDisplayId">-</span></p>
+                <p>Roll Number: <span id="studentDisplayRoll">-</span></p>
+                <p>Class: <span id="studentDisplayClass">-</span></p>
+            </div>
+
+            <div class="attendance-stats">
+                <div class="stat-card large">
+                    <h3 id="studentAttendancePercentage">0%</h3>
+                    <p>Overall Attendance</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="studentTotalDays">0</h3>
+                    <p>Days Present</p>
+                </div>
+            </div>
+
+            <div class="attendance-history">
+                <h2>Attendance History</h2>
+                <div class="history-controls">
+                    <input type="date" id="studentDateFrom" placeholder="From">
+                    <input type="date" id="studentDateTo" placeholder="To">
+                    <button id="filterStudentHistory" class="btn-secondary">Filter</button>
+                </div>
+                <div id="studentAttendanceList" class="attendance-list"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <!-- External Libraries -->
+    <script defer src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+
+    <!-- Application Scripts -->
+    <script src="app.js"></script>
+    <script src="face-recognition.js"></script>
+    <script src="register-student.js"></script>
+    <script src="scan-attendance.js"></script>
+    <script src="admin-dashboard.js"></script>
+    <script src="manage-students.js"></script>
+    <script src="admin-export.js"></script>
+    <script src="admin-settings.js"></script>
+    <script src="student-dashboard.js"></script>
+</body>
+
+</html>
